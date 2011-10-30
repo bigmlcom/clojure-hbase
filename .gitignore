@@ -5,3 +5,4 @@ lib
 classes
 .cake
 pom.xml
+/.lein-failures
