@@ -161,7 +161,7 @@
         qualifier-fn (map-get options :map-qualifier default-fn)
         timestamp-fn (map-get options :map-timestamp default-fn)
         value-fn     (map-get options :map-value default-fn)]
-    (loop [remaining-kvs (seq (.raw result))
+    (loop [remaining-kvs (if result (seq (.raw result)) nil)
            kv-vec (transient [])]
       (if-let [^KeyValue kv (first remaining-kvs)]
         (let [family    (family-fn (.getFamily kv))
